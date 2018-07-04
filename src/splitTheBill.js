@@ -21,16 +21,16 @@ splitTheBill(group) // returns {A: 5, B: 0, C: -5}
 
 const splitTheBill = group => {
   const groupValues = Object.values(group);
-  const billAmount = groupValues.reduce((a, b) => a + b);
+  const totalBillAmount = groupValues.reduce((a, b) => a + b);
   const groupCount = groupValues.length;
-  const splitBillAmt = billAmount / groupCount;
+  const eachBillAmt = totalBillAmount / groupCount;
   const groupNames = Object.keys(group);
-  var myObj = {};
+  var answer = {};
   for (var i = 0; i < groupCount; i++) {
-    var amount = groupValues[i] - splitBillAmt
-    myObj[groupNames[i]] = +amount.toFixed(2);
+    var amount = groupValues[i] - eachBillAmt
+    answer[groupNames[i]] = +amount.toFixed(2);
   }
-  return myObj;
+  return answer;
 };
 
 module.exports = splitTheBill;
